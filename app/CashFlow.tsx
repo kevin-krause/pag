@@ -7,8 +7,8 @@ import {
 
 const CashFlow = () => {
     return (
-        <div className="bg-zinc-200 m-6 p-6 rounded-lg">
-            <div className="flex flex-col md:flex md:justify-between md:flex-row">
+        <div className="bg-zinc-200 ml-6 mr-6 mt-3 p-6 rounded-lg max-w-full">
+            <div className="flex flex-col md:flex md:justify-between md:flex-row p-1 ">
                 <div className="text-white bg-zinc-700 pr-6 pl-6 pb-10 pt-6 m-6 rounded-md shadow-lg flex flex-col items-center jus">
                     <div className=" w-auto pr-8 pl-8 flex justify-between">
                         <h1 className="mr-[100px]">Entradas</h1>
@@ -35,7 +35,7 @@ const CashFlow = () => {
                     </h1>
                 </div>
 
-                <div className="text-white bg-zinc-700 pr-6 pl-6 pb-10 pt-6 m-6 rounded-md shadow-lg flex flex-col items-center jus">
+                <div className="text-white bg-zinc-700 pr-6 pl-6 pb-10 pt-6 m-6 rounded-md shadow-lg flex flex-col items-center">
                     <div className=" w-auto pr-8 pl-8 flex justify-between">
                         <h1 className="mr-[100px]">Total</h1>
                         <div className="flex items-center text-zinc-100">
@@ -48,22 +48,22 @@ const CashFlow = () => {
                     </h1>
                 </div>
             </div>
-            <div className="flex">
-                <div className="flex-1 bg-zinc-100 p-6 rounded-lg shadow-sm">
-                    <form>
+            <div className="">
+                <div className="flex-1 w-auto bg-zinc-100 p-6 rounded-lg shadow-sm">
+                    <form className="w-1/2">
                         <div className="flex flex-col">
                             <label>Descrição</label>
                             <input
                                 type="text"
-                                name="Descrição"
                                 className="rounded text-zinc-400 w-1/2"
                             />
                         </div>
+                    </form>
+                    <form className="w-1/2">
                         <div className="flex flex-col">
                             <label>Valor</label>
                             <input
                                 type="number"
-                                name="Valor"
                                 className="rounded text-zinc-400 w-1/2"
                             />
                         </div>
