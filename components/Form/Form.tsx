@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 type Record = {
     id: number
@@ -9,6 +9,7 @@ type Record = {
 const Form: React.FC = () => {
     const [inputValue, setInputValue] = useState('')
     const [outputValue, setOutputValue] = useState('')
+    const [totalValue, setTotalValue] = useState('')
     const [records, setRecords] = useState<Record[]>([])
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,37 +44,57 @@ const Form: React.FC = () => {
         }).format(value)
     }
 
+    const calculateTotal = () => {
+        return records.reduce((total, record) => {
+            return total + (record.input - record.output)
+        }, 0)
+    }
+
+    useEffect(() => {
+        const totalElement = document.getElementById('total')
+        if (totalElement) {
+            totalElement.textContent = formatCurrency(calculateTotal())
+        }
+    }, [records])
+
     return (
         <div className="m-6 rounded-lg p-6 bg-zinc-200 h-screen">
-            <div className="bg-gradient-to-r from-zinc-700 to-zinc-800 rounded-lg p-6">
-                <input
-                    className="p-2 rounded-sm"
-                    placeholder="Entradas"
-                    type="text"
-                    value={inputValue}
-                    onChange={handleInputChange}
-                />
-                <span className="pr-6"></span>
-                <input
-                    className="p-2 rounded-sm"
-                    placeholder="Saídas"
-                    type="text"
-                    value={outputValue}
-                    onChange={handleOutputChange}
-                />
-                <span className="pr-6"></span>
-                <button
-                    className="p-2 text-sm bg-gradient-to-r from-emerald-600 to-emerald-800  text-white rounded-lg cursor-pointer"
-                    onClick={handleAddRecord}
-                >
-                    Adicionar Registro
-                </button>
+            <div className="bg-gradient-to-r from-zinc-700 to-zinc-800 rounded-lg p-6 flex items-center justify-between">
+                <div>
+                    <input
+                        className="p-2 rounded-sm"
+                        placeholder="Entradas"
+                        type="text"
+                        value={inputValue}
+                        onChange={handleInputChange}
+                    />
+                    <span className="pr-6"></span>
+                    <input
+                        className="p-2 rounded-sm"
+                        placeholder="Saídas"
+                        type="text"
+                        value={outputValue}
+                        onChange={handleOutputChange}
+                    />
+                    <span className="pr-6"></span>
+                    <button
+                        className="p-2 text-sm bg-sky-300  text-black rounded-lg cursor-pointer"
+                        onClick={handleAddRecord}
+                    >
+                        Adicionar Registro
+                    </button>
+                </div>
+
+                <p
+                    id="total"
+                    className="p-3 bg-sky-300 rounded-lg text-sm  "
+                ></p>
             </div>
 
             <ul className="p-4 align-middle">
                 {records.map(record => (
                     <li
-                        className=" p-3 flex border-b-2 border-zinc-300 mb-1"
+                        className=" p-3 flex justify-between border-b-2 border-zinc-300 mb-1"
                         key={record.id}
                     >
                         <p className="text-green-500 mr-6">
@@ -82,9 +103,13 @@ const Form: React.FC = () => {
                         <p className="text-red-500">
                             Saída: {formatCurrency(record.output)}
                         </p>
+                        <p className="text-zinc-500">
+                            Total:{' '}
+                            {formatCurrency(record.input - record.output)}
+                        </p>
 
                         <button
-                            className="ml-6 p-1 bg-zinc-300 rounded-sm text-sm"
+                            className="ml-6 p-2 bg-red-500 text-red-200 rounded-sm text-sm"
                             onClick={() => handleDeleteRecord(record.id)}
                         >
                             Apagar
