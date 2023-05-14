@@ -1,12 +1,12 @@
 'use client'
-import { Dash } from '@/components/Dash/Dash'
 import { Header } from '@/components/Header/Header'
+import Form from '@/components/Form/Form'
 
-export default function Home() {
+export default function CashFlow() {
     return (
         <main>
             <Header />
-            <Dash />
+            <Form />
         </main>
     )
 }
