@@ -59,7 +59,7 @@ const Form: React.FC = () => {
     }, [records])
 
     return (
-        <div className="m-6 rounded-lg p-6 bg-zinc-200 h-screen">
+        <div className="m-6 rounded-lg p-6 bg-zinc-200 h-full">
             <div className="bg-gradient-to-r from-zinc-700 to-zinc-800 rounded-lg p-6 flex items-center justify-between">
                 <div className="flex items-center">
                     <AiOutlinePlusCircle className="w-[30px] h-[30px] pr-2 text-green-400" />
