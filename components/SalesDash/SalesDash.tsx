@@ -13,8 +13,8 @@ export const SalesDash = () => {
     ]
 
     return (
-        <div >
-            <h1 className="p-4 mb-4 bg-zinc-800 rounded-lg text-sky-300 w-auto font-semibold">
+        <div>
+            <h1 className="p-4 mb-4 bg-gradient-to-tl from-gray-900 via-gray-900 to-black rounded-lg text-white w-auto ">
                 Sales Dashboard
             </h1>
             <div className="h-full w-full">

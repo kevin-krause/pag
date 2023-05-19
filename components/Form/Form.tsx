@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from 'react-icons/ai'
+import { IoArrowUpCircleOutline } from 'react-icons/io5'
 
 type Record = {
     id: number
@@ -59,8 +60,8 @@ const Form: React.FC = () => {
     }, [records])
 
     return (
-        <div className="m-6 rounded-lg p-6 bg-zinc-200 h-full">
-            <div className="bg-gradient-to-r from-zinc-700 to-zinc-800 rounded-lg p-6 flex items-center justify-between">
+        <div className="m-6 rounded-lg p-6 bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-zinc-100 to-gray-200 h-full">
+            <div className="bg-gradient-to-tl from-gray-900 via-gray-900 to-black rounded-lg p-6 flex items-center justify-between">
                 <div className="flex items-center">
                     <AiOutlinePlusCircle className="w-[30px] h-[30px] pr-2 text-green-400" />
                     <input
@@ -81,35 +82,45 @@ const Form: React.FC = () => {
                     />
                     <span className="pr-6"></span>
                     <button
-                        className="p-2 text-sm bg-sky-300  text-black rounded-lg cursor-pointer"
+                        className="p-2 text-sm bg-sky-900 text-sky-200 rounded-lg cursor-pointer flex items-center"
                         onClick={handleAddRecord}
                     >
+                        <IoArrowUpCircleOutline className="mr-1" />
                         Adicionar Registro
                     </button>
                 </div>
 
-                <p id="total" className="p-3 bg-sky-300 rounded-lg text-sm"></p>
+                <p
+                    id="total"
+                    className="p-2 bg-sky-900 text-sky-200 rounded-lg text-sm truncate text-ellipsis overflow-hidden w-auto max-w-[150px]"
+                ></p>
             </div>
 
             <ul className="p-4 align-middle">
                 {records.map(record => (
                     <li
-                        className="text-left p-3 flex justify-between border-b-2 border-zinc-300 mb-1"
+                        className="text-sm p-3 grid grid-cols-5 gap-[40px] border-b-[1px] border-zinc-200 mb-1 items-center"
                         key={record.id}
                     >
-                        <p className="text-green-500 mr-6">
+                        <p className="text-green-700 border-[1px] border-green-300  bg-green-200 p-2 rounded truncate overflow-hidden">
                             Entrada: {formatCurrency(record.input)}
                         </p>
-                        <p className="text-red-500">
+
+                        <p className="text-red-600  bg-red-200 p-2 border-[1px] border-red-300 truncate overflow-hidden rounded">
                             Saída: {formatCurrency(record.output)}
                         </p>
-                        <p className="text-zinc-500">
+
+                        <p className="text-zinc-600 truncate overflow-hidden bg-zinc-300 p-2 border-[1px] border-zinc-400 rounded">
                             Total:{' '}
                             {formatCurrency(record.input - record.output)}
                         </p>
 
+                        <p className="text-zinc-600 truncate overflow-hidden bg-zinc-300 p-2 border-[1px] border-zinc-400  rounded ">
+                            Data
+                        </p>
+
                         <button
-                            className="ml-6 p-2 bg-red-500 text-red-200 rounded-sm text-sm"
+                            className="ml-[100px] p-1 bg-red-500 text-red-200 rounded-sm text-sm"
                             onClick={() => handleDeleteRecord(record.id)}
                         >
                             Apagar
