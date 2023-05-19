@@ -60,12 +60,12 @@ const Form: React.FC = () => {
     }, [records])
 
     return (
-        <div className="m-6 rounded-lg p-6 bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-zinc-100 to-gray-200 h-full">
-            <div className="bg-gradient-to-tl from-gray-900 via-gray-900 to-black rounded-lg p-6 flex items-center justify-between">
+        <div className="m-6 rounded-lg p-6 bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-zinc-100 to-gray-200 h-full ">
+            <div className="bg-gradient-to-tl from-gray-900 via-gray-900 to-black rounded-lg p-6 flex items-center justify-between ">
                 <div className="flex items-center">
                     <AiOutlinePlusCircle className="w-[30px] h-[30px] pr-2 text-green-400" />
                     <input
-                        className="p-2 rounded-sm"
+                        className="p-2 rounded-lg text-sm"
                         placeholder="Entradas"
                         type="text"
                         value={inputValue}
@@ -74,7 +74,7 @@ const Form: React.FC = () => {
                     <span className="pr-6"></span>
                     <AiOutlineMinusCircle className="w-[30px] h-[30px] pr-2 text-red-400" />
                     <input
-                        className="p-2 rounded-sm"
+                        className="p-2 rounded-lg text-sm"
                         placeholder="Saídas"
                         type="text"
                         value={outputValue}
@@ -82,7 +82,7 @@ const Form: React.FC = () => {
                     />
                     <span className="pr-6"></span>
                     <button
-                        className="p-2 text-sm bg-sky-900 text-sky-200 rounded-lg cursor-pointer flex items-center"
+                        className="p-2 text-sm bg-sky-900 text-sky-200 rounded-lg cursor-pointer flex items-center truncate text-ellipsis"
                         onClick={handleAddRecord}
                     >
                         <IoArrowUpCircleOutline className="mr-1" />
@@ -118,13 +118,14 @@ const Form: React.FC = () => {
                         <p className="text-zinc-600 truncate overflow-hidden bg-zinc-300 p-2 border-[1px] border-zinc-400  rounded ">
                             Data
                         </p>
-
-                        <button
-                            className="ml-[100px] p-1 bg-red-500 text-red-200 rounded-sm text-sm"
-                            onClick={() => handleDeleteRecord(record.id)}
-                        >
-                            Apagar
-                        </button>
+                        <div className="relative ">
+                            <button
+                                className="md:ml-[130px] max-w-[75px] p-1 bg-red-500 text-red-200 rounded-sm text-sm truncate"
+                                onClick={() => handleDeleteRecord(record.id)}
+                            >
+                                Apagar
+                            </button>
+                        </div>
                     </li>
                 ))}
             </ul>
