@@ -1,5 +1,6 @@
 import React from 'react'
 import { SalesDash } from '../SalesDash/SalesDash'
+import Noticias from '../Noticias/Noticias'
 
 export const Dash = () => {
     return (
@@ -10,8 +11,7 @@ export const Dash = () => {
                 </div>
 
                 <div className="w-full bg-zinc-100 m-6 p-6 flex flex-col rounded-lg">
-                    aqui vai um relatório das vendas os sla oq eu quiser
-                    colocar...
+                    <Noticias />
                 </div>
             </div>
         </main>
