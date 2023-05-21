@@ -10,10 +10,16 @@ export const Header = () => {
             </a>
 
             <a className="mr-6" href={'/'}>
-                Menu
+                Dashboard
             </a>
 
-            <a href="/CashFlow">Cash Flow</a>
+            <a className="mr-6" href="/CashFlow">
+                Entradas e Saídas
+            </a>
+
+            <a className="mr-6" href={'/ServiceOrder'}>
+                Ordem de Serviço
+            </a>
         </div>
     )
 }
