@@ -1,6 +1,5 @@
 import React from 'react'
 import { SalesDash } from '../SalesDash/SalesDash'
-import Noticias from '../Noticias/Noticias'
 
 export const Dash = () => {
     return (

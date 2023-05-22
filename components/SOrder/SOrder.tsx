@@ -19,7 +19,7 @@ export const SOrder = () => {
                                 <input
                                     className='className="py-3 px-1 border-[1px] border-zinc-300 rounded text-sm text-zinc-500'
                                     type="number"
-                                    id="cod"
+                                    id="CODUSU"
                                 />
                             </li>
 

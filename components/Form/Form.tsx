@@ -115,9 +115,10 @@ const Form: React.FC = () => {
                             {formatCurrency(record.input - record.output)}
                         </p>
 
-                        <p className="text-zinc-600 truncate overflow-hidden bg-zinc-300 p-2 border-[1px] border-zinc-400  rounded ">
-                            Data
+                        <p className="text-zinc-600 truncate overflow-hidden bg-zinc-300 p-2 border-[1px] border-zinc-400  rounded flex ">
+                            <p>{new Date().toLocaleString() + ''}</p>
                         </p>
+
                         <div className="relative ">
                             <button
                                 className="md:ml-[130px] max-w-[75px] p-1 bg-red-500 text-red-200 rounded-sm text-sm truncate"
